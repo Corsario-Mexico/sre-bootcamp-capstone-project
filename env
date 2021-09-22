@@ -1,0 +1,4 @@
+export DB_HOST="bootcamp-tht.sre.wize.mx"
+export DB_USER="secret"
+export DB_PASS="noPow3r"
+export DB_NAME="bootcamp_tht"

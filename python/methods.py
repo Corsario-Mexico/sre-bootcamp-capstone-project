@@ -1,27 +1,37 @@
 import hashlib
 import jwt
+
+
+SECRET = "my2w7wjd7yXF64FIADfJxNs1oupTGAuW"
+
+
 class Token:
-    def generateToken(self, username, input_password, Query):  
-        usefulKey = 'my2w7wjd7yXF64FIADfJxNs1oupTGAuW'
-        if Query!=None:
-            salt=Query[0][0]
-            password=Query[0][1]
-            role=Query[0][2]  
-            hashPass=hashlib.sha512((input_password+salt).encode()).hexdigest()
-            if hashPass==password:
-                enJWT = jwt.encode({"role": role}, usefulKey, algorithm='HS256')
-                return enJWT
+    def generate_token(self, input_password, query):
+        if query is not None:
+            salt = query[0][0]
+            password = query[0][1]
+            role = query[0][2]
+            hash_pass = hashlib.sha512((input_password + salt).encode()).hexdigest()
+            if hash_pass == password:
+                en_jwt = jwt.encode({"role": role}, SECRET, algorithm="HS256")
+                return en_jwt
             else:
                 return False
         else:
             return False
+
+
 class Restricted:
-    def access_Data(self, authorization): 
+    def access_data(self, authorization):
         try:
-            var1=jwt.decode(authorization.replace('Bearer', '')[2:-1], 'my2w7wjd7yXF64FIADfJxNs1oupTGAuW', algorithms='HS256')
-        except Exception as e:
+            decoded_role = jwt.decode(
+                authorization.replace("Bearer", "")[2:-1],
+                SECRET,
+                algorithms="HS256",
+            )
+        except Exception:  # pylint: disable=broad-except
             return False
-        if 'role' in var1:
-            return True  
+        if "role" in decoded_role:
+            return True
         else:
             return False
