@@ -4,6 +4,15 @@ Remember that you can find the complete instructions for this project **[here](h
 
 If you have any questions, feel free to contact your mentor or one of us: Juan Barbosa, Laura Mata, or Francisco Bueno. We are here to support you.
 
+## Project Diagram
+
+![Project Diagram](CapstoneBranchStrategy.png)
+
+## Branching Strategy
+
+![Branching Strategy](CapstoneProjectDiagram.png)
+
+
 ## Docker image
 
 ```shell
