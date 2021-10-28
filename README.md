@@ -21,3 +21,9 @@ docker run -it --rm -p 8000:8000/tcp --name sre-app davidsol/academy-sre-bootcam
 ```shell
 docker push davidsol/academy-sre-bootcamp-david-sol:latest
 ```
+
+## Set environment variables
+
+```shell
+source .env
+```

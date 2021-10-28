@@ -41,6 +41,7 @@ reports
 
 # Terraform
 .terraform
+terraform/.terraform.lock.hcl
 
 # K8s
 provision/.kube
@@ -54,3 +55,6 @@ __pycache__/
 provision/.*/*
 
 provision/terraform/destroy-candidate.sh
+
+# VSCode
+.vscode
